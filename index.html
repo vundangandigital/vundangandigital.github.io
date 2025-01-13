@@ -141,18 +141,47 @@
 	</head>
 	<body>
 		<div id="popup" class="popup">
-			<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url('images/bg.jpg');" data-stellar-background-ratio="0.5">
+			<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url('images/bg.png');" data-stellar-background-ratio="0.5">
 				<div class="overlay"></div>
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 text-center">
-							<div class="display-t">
+							<div class="display-t" style="height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 50px;">
 								<div class="display-tc animate-box" data-animate-effect="fadeIn">
-									<h1>Kepada</h1>
-									<br><br><br><br><br>
-									<h1 id="name">Bapak &amp; Ibu</h1>
-									<br><br><br><br><br>
-									<p><a href="#" id="open-invite" class="btn btn-default btn-sm">Buka Undangan</a></p>
+									<!-- Teks The Wedding of -->
+									<h1 style="font-size: 30px; color: #fff; margin-bottom: 20px;">The Wedding of</h1>
+									<!-- Nama pasangan -->
+									<h2 style="font-size: 26px; color: #fff; margin-bottom: 50px;">Warisman & Minarti</h2>
+									<!-- Teks kepada -->
+
+									
+									<h2 style="font-size: 25px; color: #fff; margin-bottom: 40px;">Kepada Bapak/Ibu/Saudara/I</h2>
+									<!-- Nama berdasarkan parameter -->
+									<h1 id="name" style="font-size: 28px; color: #f8e1e1; margin-bottom: 50px;">Bapak &amp; Ibu</h1>
+									<!-- Tombol buka undangan -->
+									<p>
+										<a href="#" id="open-invite" class="btn btn-primary btn-lg">Buka Undangan</a>
+									</p>
+									<audio id="myAudio" loop>
+										<source src="audio.mp3" type="audio/mpeg">
+										Browser Anda tidak mendukung elemen audio.
+									</audio>
+									
+									<script>
+										// Memulai audio saat tombol "Buka Undangan" diklik
+										document.addEventListener("DOMContentLoaded", () => {
+											const audio = document.getElementById("myAudio");
+											const button = document.getElementById("open-invite");
+									
+											button.addEventListener("click", (event) => {
+												event.preventDefault(); // Mencegah perilaku default tombol
+												audio.play().catch(error => {
+													console.log("Autoplay dicegah oleh browser:", error);
+												});
+											});
+										});
+									</script>
+									
 								</div>
 							</div>
 						</div>
@@ -160,21 +189,24 @@
 				</div>
 			</header>
 		</div>
+		
 		<script>
-			// Fungsi untuk mendapatkan parameter URL
+			// Fungsi untuk mendapatkan parameter dari URL
 			function getQueryParam(param) {
 				const urlParams = new URLSearchParams(window.location.search);
 				return urlParams.get(param);
 			}
-		
-			// Ambil nama dari parameter URL
+			// Mendapatkan parameter 'name' dari URL
 			const name = getQueryParam('name');
-		
-			// Jika nama ditemukan di URL, ubah elemen HTML
 			if (name) {
 				document.getElementById('name').textContent = name;
 			}
 		</script>
+		
+
+
+		
+
 	<!-- <div class="fh5co-loader"></div> -->
 	
 	<div id="page">
@@ -196,7 +228,9 @@
 	</nav> -->
 	<div id="main-content" class="hidden">
 
-	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/bg.jpg); position: relative;" data-stellar-background-ratio="0.5">
+		<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url('images/bg.png');" data-stellar-background-ratio="0.5">
+
+
 		<!-- Layer hitam dengan opacity -->
 		<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: black; opacity: 0.5; z-index: 1;"></div>
 		
